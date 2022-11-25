@@ -10,7 +10,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 api_url = 'https://api-sckhoo-1mmxfh5b.uc.gateway.dev'
-apitoken = 'AIzaSyBN9QQOIeHMqGat729jFr2pzzjo28KNiSc'
+apitoken = <Hidden Token>
 
 @app.post('/index/' ,response_class=HTMLResponse)
 async def index(request: Request, query: str = Form(...), country: str = Form(...)):
