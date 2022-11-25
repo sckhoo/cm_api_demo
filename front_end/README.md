@@ -1,0 +1,2 @@
+# Build container image and push to repository in the cloud
+khoosweechuan@sckhoos-MacBook-Pro: ~/Documents/apigee_lab/misc_scripts/front_end [main*] $ gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/cmmy-rd-playground/api-frontend-repo/api-frontend:tag1

@@ -1,0 +1,65 @@
+# openapi2-run.yaml
+swagger: '2.0'
+info:
+  title:  apigw-demo-sckhoo my-testing-api-gw
+  description: Sample API on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+paths:
+  /gdp_by_country/{country}:
+    get:
+      summary: Cloud Run GDP
+      operationId: gdp
+      x-google-backend:
+        address: https://gdp-sckhoo-rfd3jbir7a-uc.a.run.app/
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - name: country
+          in: path
+          description: country name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /happiness_by_country/{country}:
+    get:
+      summary: Cloud Run Happiness
+      operationId: happiness
+      x-google-backend:
+        address: https://countryhappiness-sckhoo-rfd3jbir7a-uc.a.run.app/
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - name: country
+          in: path
+          description: country name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /population_by_country/{country}:
+    get:
+      summary: Cloud Run Population
+      operationId: population
+      x-google-backend:
+        address: https://countrypopulation-sckhoo-rfd3jbir7a-uc.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS
+      parameters:
+        - name: country
+          in: path
+          description: country name
+          required: true
+          type: string
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
